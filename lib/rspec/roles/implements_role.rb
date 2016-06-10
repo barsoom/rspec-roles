@@ -4,8 +4,8 @@ class Object
       RSpec::Roles.roles[name].each do |method_name, parameters|
         required_count = parameters.size
         it "responding to #{method_name} with the #{required_count} required arguments" do
-          subject.should respond_to(method_name)
-          subject.method(method_name).parameters.size.should == required_count
+          expect(subject).to respond_to(method_name)
+          expect(subject.method(method_name).parameters.size).to eq required_count
         end
       end
     end
